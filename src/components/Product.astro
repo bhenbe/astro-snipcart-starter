@@ -1,0 +1,29 @@
+---
+const { id, name, description, image, price, url } = Astro.props;
+---
+
+<article class="card">
+
+    <img src={image} alt={name} class="card-img-top" width="600" height="300" />
+
+    <div class="card-body">
+
+        <h2>{name}</h2>
+
+        <p>{price} &euro;</p>
+
+        <p>{description}</p>
+
+        <button class="btn btn-success snipcart-add-item"
+        data-item-id={id}
+        data-item-price={price}
+        data-item-url="/food/fried-chicken-wings"
+        data-item-description={description}
+        data-item-image={image}
+        data-item-name={name}>
+        Ajouter au panier
+        </button>
+
+    </div>
+
+</article>

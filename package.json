@@ -1,0 +1,17 @@
+{
+  "name": "@example/starter",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "astro": "^0.22.3"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
