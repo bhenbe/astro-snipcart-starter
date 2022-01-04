@@ -1,8 +1,6 @@
-# Welcome to [Astro](https://astro.build)
+# Welcome to [Astro](https://astro.build) and [Snipcart](https://snipcart.com/fr) starter
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/starter)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This is a sandbox to try some features between Astro and Snipcart. Have fun !
 
 ## 🚀 Project Structure
 
@@ -15,7 +13,9 @@ Inside of your Astro project, you'll see the following folders and files:
 │   └── favicon.ico
 ├── src/
 │   ├── components/
-│   │   └── Tour.astro
+│   │   └── Product.astro
+│   ├── functions/
+│   │   └── GetDeliveryDates.js
 │   └── pages/
 │       └── index.astro
 └── package.json
