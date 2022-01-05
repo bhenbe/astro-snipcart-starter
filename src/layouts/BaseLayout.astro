@@ -1,0 +1,69 @@
+---
+import GetDeliveryDates from '../functions/GetDeliveryDates.js';
+
+const { title } = Astro.props;
+const snipcart_public_key = import.meta.env.PUBLIC_SNIPCARTAPI;
+const dates = GetDeliveryDates();
+---
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>{title}</title>
+
+	<link rel="preconnect" href="https://app.snipcart.com" />
+	<link rel="preconnect" href="https://cdn.snipcart.com" />
+	<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+
+
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	
+	<link rel="stylesheet" type="text/css" href={Astro.resolve('../../scss/bootstrap.scss')} />
+</head>
+<body>
+	<header class="container">
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Boutique</a>
+				
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link snipcart-checkout" aria-current="page" href="#">
+							Panier
+							<span class="badge bg-primary"><span class="snipcart-items-count"></span></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+	</header>
+
+	<main class="container py-5">
+		
+        <slot />
+
+	</main>
+
+	<script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+	<div hidden id="snipcart" data-api-key={snipcart_public_key} data-config-modal-style="side">
+		<billing section="bottom">
+			<fieldset class="snipcart-form__set">
+				<div class="snipcart-form__field">
+					<div class="snipcart-form__field-select">
+						<snipcart-label for="deliveryDate" class="snipcart__font--tiny">
+							Date de retrait en magasin
+						</snipcart-label>
+						<snipcart-select name="deliveryDate" class="snipcart-form__select  snipcart__font--secondary snipcart__font--bold">
+							{dates.map((date) => (
+								<option value={date}>{date}</option>
+							))}
+						</snipcart-select>
+					</div>
+				</div>
+			</fieldset>
+		</billing>
+	</div>
+</body>
+</html>
