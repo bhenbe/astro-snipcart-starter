@@ -1,0 +1,12 @@
+---
+const { id, name, description, image, price, url } = Astro.props;
+---
+<button class="btn btn-success snipcart-add-item"
+        data-item-id={id}
+        data-item-price={price}
+        data-item-url={url}
+        data-item-description={description}
+        data-item-image={Astro.resolve(image)}
+        data-item-name={name}>
+        Ajouter au panier
+        </button>

@@ -1,14 +1,16 @@
 ---
 import BillingHook from '../components/snipcart/BillingHook.astro';
+import ProductButton from '../components/ProductButton.astro';
 
-const { title } = Astro.props;
+const { content } = Astro.props;
+const { id, name, description, price, image, url } = content;
 const snipcart_public_key = import.meta.env.PUBLIC_SNIPCARTAPI;
 ---
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
-	<title>{title}</title>
+	<title>{name}</title>
 
 	<link rel="preconnect" href="https://app.snipcart.com" />
 	<link rel="preconnect" href="https://cdn.snipcart.com" />
@@ -17,7 +19,7 @@ const snipcart_public_key = import.meta.env.PUBLIC_SNIPCARTAPI;
 
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	
-	<link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href={Astro.resolve('/assets/css/bootstrap.min.css')} />
 </head>
 <body>
 	<header class="container">
@@ -40,8 +42,21 @@ const snipcart_public_key = import.meta.env.PUBLIC_SNIPCARTAPI;
 	</header>
 
 	<main class="container py-5">
+
+        <img src={Astro.resolve(image)} alt={name} />
+
+        <h1>{name}</h1>
+
+        <p>{price}</p>
 		
         <slot />
+
+        <ProductButton id={id}
+					   name={name}
+					   description={description}
+					   price={price}
+					   image={Astro.resolve(image)}
+					   url={url} />
 
 	</main>
 

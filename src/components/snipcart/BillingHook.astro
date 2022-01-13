@@ -1,0 +1,20 @@
+---
+import GetDeliveryDates from '../../functions/GetDeliveryDates.js';
+const dates = GetDeliveryDates();
+---
+<billing section="bottom">
+	<fieldset class="snipcart-form__set">
+		<div class="snipcart-form__field">
+			<div class="snipcart-form__field-select">
+				<snipcart-label for="deliveryDate">
+					Date de retrait en magasin
+				</snipcart-label>
+				<snipcart-select name="deliveryDate" class="snipcart-form__select  snipcart__font--secondary snipcart__font--bold" required>
+					{dates.map((date) => (
+						<option value={date}>{date}</option>
+					))}
+				</snipcart-select>
+			</div>
+		</div>
+	</fieldset>
+</billing>
