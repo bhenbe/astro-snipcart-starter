@@ -1,6 +1,5 @@
 ---
 const { id, name, description, image, price, url } = Astro.props;
-const path = Astro.site.pathname;
 ---
 
 <article class="card">
@@ -25,7 +24,7 @@ const path = Astro.site.pathname;
         Ajouter au panier
         </button>
 
-        <a href={path + url} class="btn btn-primary">Voir</a> 
+        <a href={url} class="btn btn-primary">Voir</a> 
 
     </div>
 

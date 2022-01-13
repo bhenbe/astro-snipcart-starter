@@ -5,6 +5,7 @@ import ProductButton from '../components/ProductButton.astro';
 const { content } = Astro.props;
 const { id, name, description, price, image, url } = content;
 const snipcart_public_key = import.meta.env.PUBLIC_SNIPCARTAPI;
+const path = Astro.site.pathname;
 ---
 <html lang="fr">
 <head>
@@ -56,7 +57,7 @@ const snipcart_public_key = import.meta.env.PUBLIC_SNIPCARTAPI;
 					   description={description}
 					   price={price}
 					   image={Astro.resolve(image)}
-					   url={url} />
+					   url={path + url} />
 
 	</main>
 

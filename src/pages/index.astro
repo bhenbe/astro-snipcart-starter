@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import Product from '../components/Product.astro';
 
 const title = 'My Astro Site';
+const path = Astro.site.pathname;
 ---
 <BaseLayout title={title}>
 	<header>
@@ -16,7 +17,7 @@ const title = 'My Astro Site';
 					 description="Succulentes ailes de poulet préparées"
 					 price="9.99"
 					 image="/assets/img/fried-chicken-wings.jpg"
-					 url="/" />
+					 url={path + "products/chicken-tenders/"} />
 		</div>
 	</div>
 
